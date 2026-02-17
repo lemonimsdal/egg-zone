@@ -1,0 +1,569 @@
+/* Nollställer standardmarginaler och förenklar storlekshantering */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definierar färgvariabler för konsekvent användning */
+
+:root {
+    --sections: linear-gradient(to bottom, #333333, #8a8a8a);
+    --shadow: 0 2px 10px rgba(0, 0, 0, .06);
+}
+
+/* Smidigt scrollande för ankarlänkar */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Grundläggande stil för body */
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: rgb(229, 229, 229);
+    color: #333;
+    min-height: 100vh;
+
+}
+
+/* Stil för navbar */
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: var(--sections);
+    color: white;
+    align-items: center;
+    position: relative;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+}
+
+/* Animationer och stil för logotypen */
+
+.logo {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+/* Länkar i navigationsmenyn */
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Mobilmeny-stilar */
+
+@media screen and (max-width: 519px) {
+    .nav-toggle-label {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--sections);
+        text-align: center;
+        padding: 1rem;
+        min-width: 150px;
+        border-radius: 0 0 0 0.5rem;
+        border: 2px solid white;
+        border-top: none;
+    }
+    
+    #nav-toggle:checked~.nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+nav a {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+    text-decoration: none;
+    color: white;
+}
+
+/* Underline animationer för navigationslänkar */
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+}
+
+nav a[aria-current="page"]::after {
+    transform: scaleX(1);
+}
+
+/* Main Content Stilar */
+
+main {
+    padding: 2rem;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.hero-section {
+    background: url('public/hero.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.content-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Single column by default */
+    gap: 1.25rem;
+    align-items: start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+    .content-section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow);
+    transition: transform .12s ease, box-shadow .12s ease;
+    width: 100%;
+}
+
+.card:hover,
+.card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.12);
+    outline: none;
+}
+
+/* Updates / News article styling */
+
+.updates {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem 1.5rem 3rem 1.5rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    align-items: start;
+    background: rgb(105, 104, 104);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.updates-title {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 0.5rem 0 0.75rem 0;
+    font-size: 2rem;
+    color: #f9f9f9;
+}
+
+.update {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow);
+}
+
+.update:hover,
+.update:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
+    outline: none;
+}
+
+.update h3 {
+    font-size: 1.1rem;
+}
+
+.date-time {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* About Section Styles */
+
+.about {
+    padding: 1rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.about h2 {
+    text-align: center;
+}
+
+.about p+p {
+    margin-top: 1rem;
+}
+
+/* Catalogue Section Styles */
+
+.catalogue-title {
+    text-align: center;
+    padding: 2rem;
+    font-size: 2rem;
+    color: #333;
+    width: 100%;
+}
+
+.catalogue .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Product Card Styles */
+
+.product-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform .12s ease, box-shadow .12s ease;
+    overflow: hidden;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-card:hover,
+.product-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
+    outline: none;
+}
+
+.product-card p {
+    margin-bottom: 0.5rem;
+}
+
+/* Info knapp stil */
+
+.buy-button {
+    background-color: #ffcc00;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: #333;
+    display: inline-block;
+}
+
+.buy-button:hover {
+    background-color: #e6b800;
+}
+
+.buy-button:focus {
+    outline: 2px solid #333;
+    outline-offset: 2px;
+}
+
+/* Contact Section Styles */
+
+.contact {
+    width: 90%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.contact p {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: clamp(0.8rem, 2vw, 1rem);
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    transition: border-color 0.3s ease;
+    max-width: 100%;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #333;
+}
+
+.contact-form button {
+    background: var(--sections);
+    color: white;
+    padding: 1rem;
+    width: 100%;
+    margin: 1rem 0 0 0;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Om oss sektion */
+
+/* Inledande hjältesektion för om oss sidan */
+
+.about-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/hero.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 4rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin: 0 auto 2rem;
+    max-width: 1200px;
+}
+
+.about-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-shadow: var(--shadow);
+}
+
+/* Achievements / Milestones sektion */
+
+.achievement-section {
+    display: flex;
+    gap: 2rem;
+    margin: 0 auto 3rem;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+.achievement-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.achievement-text {
+    flex: 1;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.achievement-text h2 {
+    margin-bottom: 1rem;
+}
+
+.achievement-image {
+    flex: 1;
+    min-height: 300px;
+    border-radius: 1rem;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: var(--shadow);
+}
+
+.achievement-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+    border-radius: 1rem;
+    display: block;
+}
+
+/* Responsiv design för achievements sektion */
+
+@media screen and (max-width: 768px) {
+
+    .achievement-section,
+    .achievement-section.reverse {
+        flex-direction: column;
+    }
+
+    .achievement-text {
+        padding: 1.5rem;
+    }
+
+    .achievement-image {
+        min-height: 250px;
+    }
+}
+
+/* Footer Stilar */
+
+footer {
+    background: linear-gradient(to bottom, #b0acac, #333333);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    width: 100%;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Sociala medier ikoner i sidfoten */
+
+.social-icons {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 26px;
+    height: 26px;
+}
+
+#formMessage {
+  min-height: 20px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* Stilar för katalogsökning och produktlistning */
+
+.catalogue-tools {
+    max-width: 1200px;
+}
+
+.catalogue-tools label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.catalogue-tools input {
+    width: 100%;
+    max-width: 420px;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+#listMessage {
+    min-height: 20px;
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+.error {
+  color: #b30000;
+}
+
+.success {
+  color: #0a7a0a;
+}

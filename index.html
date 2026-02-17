@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eggzone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/jpeg" href="public/favicon.jpg">
+</head>
+
+<!-- navigation bar -->
+
+<body>
+    <nav class="nav-bar">
+        <a class="logo" href="index.html" aria-current="page">Eggzone</a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">☰</label>
+        <ul class="nav-links">
+            <li><a href="om-oss.html">Om Oss</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- hero sektion -->
+
+    <main>
+        <div class="hero-section">
+            <section>
+                <h1>Välkommen till Egg Zone</h1>
+                <p>Upptäck skillnaden mellan ägg. Vi visar vägen</p>
+            </section>
+        </div>
+
+        <!-- content sektion -->
+
+        <div class="content-section">
+            <a href="#catalogue" class="card" aria-label="Gå till våra produkter">
+                <h2>Våra ägg</h2>
+                <p>Se våra erbjudanden på ägg!</p>
+            </a>
+
+            <a href="om-oss.html" class="card" aria-label="Läs mer om oss">
+                <h2>Om oss</h2>
+                <p>Information om vårt företag.</p>
+            </a>
+
+            <a href="kontakt.html" class="card" aria-label="Kontakta oss">
+                <h2>Kontakt</h2>
+                <p>Hur du kan nå oss.</p>
+            </a>
+        </div>
+
+        <!-- article sektion -->
+
+        <article class="updates">
+            <h2 class="updates-title">Senaste Nytt</h2>
+            <section class="update">
+                <h3>Ny leverantör tillagd: Gårdsby ägg</h3>
+                <p>Vi är glada att meddela att vi har lagt till Gårdsby ägg i vår katalog. Upptäck deras
+                    gårdsproducerade ekologiska ägg från Småland.</p>
+                <small class="date-time">Publicerad: 2024-02-15 - Darwish Raja</small>
+            </section>
+            <section class="update">
+                <h3>Rabattkampanj på Stjärnägg</h3>
+                <p>Just nu erbjuder Stjärnägg en specialrabatt på sina produkter. Besök deras sida för att
+                    ta del av erbjudandet!</p>
+                <small class="date-time">Publicerad: 2024-02-10 - Darwish Raja</small>
+            </section>
+            <section class="update">
+                <h3>Ny artikel: Fördelarna med ekologiska ägg</h3>
+                <p>Läs vår senaste artikel om varför ekologiska ägg är ett bättre val för både dig och
+                    miljön.</p>
+                <small class="date-time">Publicerad: 2024-01-25 - Darwish Raja</small>
+            </section>
+            <section class="update">
+                <h3>Event: Äggmässa 2024</h3>
+                <p>Delta i vår årliga äggmässa där du kan träffa leverantörer, smaka på produkter och
+                    lära dig mer om äggindustrin.</p>
+                <small class="date-time">Publicerad: 2024-01-10 - Darwish Raja</small>
+            </section>
+            <section class="update">
+                <h3>Feedback från kunder</h3>
+                <p>Vi värdesätter din åsikt! Läs vad våra kunder säger om deras upplevelser med de
+                    äggprodukter vi erbjuder.</p>
+                <small class="date-time">Publicerad: 2024-01-05 - Darwish Raja</small>
+            </section>
+        </article>
+
+        <!-- about sektion -->
+
+        <section class="about">
+            <h2>Om Egg Zone</h2>
+  
+            <p>Egg Zone är din pålitliga källa för att jämföra och hitta de bästa äggen på marknaden. Vi
+                samarbetar med ledande äggleverantörer för att ge dig detaljerad information om olika
+                äggprodukter, så att du kan göra informerade val baserade på kvalitet, ursprung och
+                pris.</p>
+
+            <p>Vårt mål är att förenkla din shoppingupplevelse genom att erbjuda en omfattande katalog över
+                äggprodukter från olika leverantörer. Oavsett om du letar efter ekologiska ägg, frigående
+                alternativ eller prisvärda val, har vi något för dig.</p>
+
+            <p>Utforska vår webbplats för att upptäcka de bästa äggen som passar dina behov. Vi är här för att hjälpa
+                dig att hitta de perfekta äggen för ditt hem och din familj.</p>
+        </section>
+
+        <!-- catalogue sektion -->
+
+        <section id="catalogue" class="catalogue">
+            <h2 class="catalogue-title">Ägg </h2>
+
+            <!-- sök input -->
+
+            <div class="catalogue-tools">
+                <label for="searchInput">Sök i katalogen</label>
+                <input id="searchInput" type="text" placeholder="Sök namn eller beskrivning">
+                <p id="listMessage" aria-live="polite"></p>
+            </div>
+
+            <!-- produkter kommer att läggas till här via JavaScript -->
+
+            <div class="grid" id="productGrid"></div>
+        </section>
+    </main>
+
+    <!-- footer sektion -->
+
+    <footer>
+        <section>
+            <a  href="index.html">
+                Hem
+            </a>
+            <br>
+            <a  href="om-oss.html">
+                Om Oss
+            </a>
+            <br>
+            <a href="kontakt.html">
+                Kontakt
+            </a>
+        </section>
+
+        <!-- social icons -->
+
+        <section class="social-icons">
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <img src="public/facebook-icon.png" alt="Facebook ikon" class="social-icon">
+            </a>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <img src="public/twitter-icon.png" alt="Twitter ikon" class="social-icon">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <img src="public/instagram-icon.png" alt="Instagram ikon" class="social-icon">
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <img src="public/linkedin-icon.png" alt="LinkedIn ikon" class="social-icon">
+            </a>
+        </section>
+        <p>&copy; 2024 Eggzone. Alla rättigheter förbehållna.</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>
