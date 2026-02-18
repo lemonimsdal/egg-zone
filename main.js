@@ -85,6 +85,8 @@ function renderProducts() {
   return;
 }
 
+// 2) Skapa filtrerad lista baserat på söktext
+  
   const filtered = state.products.filter((p) => {
     const q = state.search.toLowerCase();
     return (
@@ -93,12 +95,18 @@ function renderProducts() {
     );
   });
 
+// 3) Om sökningen ger 0 träffar.
+
   if (filtered.length === 0) {
     listMessage.textContent = "Inga matchningar.";
     return;
   }
 
+// 4) Om det finns träffar, rensa meddelandet och rendera korten.
+
   listMessage.textContent = "";
+
+// 5) Skapa kort för varje produkt och lägg in i DOM.
 
   filtered.forEach((product) => {
     const card = document.createElement("div");
