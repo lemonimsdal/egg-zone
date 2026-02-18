@@ -1,18 +1,38 @@
+/* =========================
+  Hämtar HTML-element så JS kan läsa och uppdatera formuläret.
+========================= */
 const form = document.querySelector(".contact-form");
 const nameInput = document.querySelector("#name");
 const emailInput = document.querySelector("#email");
 const messageInput = document.querySelector("#message");
 const formMessage = document.querySelector("#formMessage");
 
+
+/* =========================
+  Visar fel eller success direkt i gränssnittet (inte alert).
+  type används som CSS-klass: "error" eller "success".
+========================= */
 function showMessage(text, type) {
   formMessage.textContent = text;
-  formMessage.className = type; // "error" eller "success"
+  formMessage.className = type;
 }
 
+
+/* =========================
+  En enkel kontroll som avgör om e-post ser rimlig ut.
+  Returnerar true/false.
+========================= */
 function isValidEmail(email) {
   return email.includes("@") && email.includes(".");
 }
 
+
+/* =========================
+  1) Stoppar standard-submit med preventDefault()
+  2) Läser in data från fälten
+  3) Validerar steg för steg
+  4) Visar fel i UI eller success + reset
+========================= */
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
