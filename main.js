@@ -132,12 +132,14 @@ function renderProducts() {
 // ===== Events =====
 
 // 1) Sök/filter i realtid
+
 searchInput.addEventListener("input", (event) => {
   state.search = event.target.value.trim();
   renderProducts();
 });
 
 // 2) Event delegation (click på parent)
+
 productGrid.addEventListener("click", (event) => {
   const action = event.target.dataset.action;
   if (action !== "toggle-favorite") return;
